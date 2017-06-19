@@ -13,7 +13,7 @@
 /** 根据当前年月得出日历数组 */
 + (NSArray *)datesWithYearAndMonth:(NSString *)ym;
 
-/** 当前的年份和月份 yyyy-MM */
+/** 今天的年份和月份 yyyy-MM */
 + (NSString *)currentYearAndMonth;
 
 /** 今天 yyyy-MM-dd */

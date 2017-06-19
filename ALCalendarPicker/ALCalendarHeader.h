@@ -32,6 +32,9 @@
 /** 起始年月 yyyy-MM */
 @property (nonatomic, copy) NSString *beginYearMonth;
 
+/** 结束年月 yyyy-MM */
+@property (nonatomic, copy) NSString *endYearMonth;
+
 /** 代理 */
 @property (nonatomic, assign) id<ALCalendarHeaderDelegate> delegate;
 

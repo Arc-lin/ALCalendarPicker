@@ -138,6 +138,11 @@ static CGFloat headerHeight = 45;
     if ([self.header.title isEqualToString:self.beginYearMonth] && scrollView.contentOffset.x < self.width) {
         [scrollView setContentOffset:CGPointMake(self.width, 0) animated:NO];
     }
+    
+    // 到达结束时间不能滚动
+    if ([self.header.title isEqualToString:self.endYearMonth]  && scrollView.contentOffset.x > self.width) {
+        [scrollView setContentOffset:CGPointMake(self.width, 0) animated:NO];
+    }
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
@@ -196,6 +201,21 @@ static CGFloat headerHeight = 45;
     self.collectionViews[1].yearAndMonth = self.header.title;
 }
 
+// 比较时间先后
+- (BOOL)compareOneDay:(NSString *)day1 withAnotherDay:(NSString *)day2
+{
+    NSDate *dateA = [ALCalendarHelper dateStringToDate:day1 format:@"yyyy-MM"];
+    NSDate *dateB = [ALCalendarHelper dateStringToDate:day2 format:@"yyyy-MM"];
+    NSComparisonResult result = [dateA compare:dateB];
+    if (result == NSOrderedDescending) {
+        return NO; // Day1 在 Day2 之后
+    }
+    else if (result == NSOrderedAscending) {
+        return YES; // Day1 在 Day2 之前
+    }
+    return YES;
+}
+
 #pragma mark - setter & getter
 
 - (ALCalendarHeader *)header
@@ -213,6 +233,20 @@ static CGFloat headerHeight = 45;
 {
     _beginYearMonth            = beginYearMonth;
     self.header.beginYearMonth = beginYearMonth;
+    NSAssert([self compareOneDay:beginYearMonth withAnotherDay:[ALCalendarHelper currentYearAndMonth]], @"开始时间不能比当前月晚");
+    if (_endYearMonth) {
+        NSAssert([self compareOneDay:beginYearMonth withAnotherDay:self.endYearMonth],@"结束时间不能比开始时间早");
+    }
+}
+
+- (void)setEndYearMonth:(NSString *)endYearMonth
+{
+    _endYearMonth            = endYearMonth;
+    self.header.endYearMonth = endYearMonth;
+    NSAssert([self compareOneDay:[ALCalendarHelper currentYearAndMonth] withAnotherDay:endYearMonth], @"结束时间不能比当前月早");
+    if (_beginYearMonth) {
+        NSAssert([self compareOneDay:self.beginYearMonth withAnotherDay:endYearMonth],@"结束时间不能比开始时间早");
+    }
 }
 
 - (UIScrollView *)scrollView

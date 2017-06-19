@@ -20,7 +20,7 @@
 
 @property (nonatomic, strong) UIButton *rightBtn;
 
-@property (nonatomic, strong) UILabel  *titleLabel;
+@property (nonatomic, strong) UIButton *titleButton;
 
 @end
 
@@ -37,7 +37,7 @@
 - (void)setupView
 {
     [self addSubview: self.leftBtn];
-    [self addSubview: self.titleLabel];
+    [self addSubview: self.titleButton];
     [self addSubview: self.rightBtn];
     
     __weak typeof(self) weakSelf = self;
@@ -50,7 +50,7 @@
         make.width.equalTo(strongSelf.mas_height);
     }];
     
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.titleButton mas_makeConstraints:^(MASConstraintMaker *make) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
         make.centerX.equalTo(strongSelf.mas_centerX);
         make.centerY.equalTo(strongSelf.mas_centerY);
@@ -112,14 +112,14 @@
     return _rightBtn;
 }
 
-- (UILabel *)titleLabel
+- (UIButton *)titleButton
 {
-    if (!_titleLabel) {
-        _titleLabel = [[UILabel alloc] init];
-        _titleLabel.font = [UIFont systemFontOfSize:16];
-        _titleLabel.textColor = [UIColor darkGrayColor];
+    if (!_titleButton) {
+        _titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _titleButton.titleLabel.font = [UIFont systemFontOfSize:16];
+        [_titleButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     }
-    return _titleLabel;
+    return _titleButton;
 }
 
 - (void)setTitle:(NSString *)title
@@ -127,12 +127,18 @@
     _title = title;
     // 格式化显示日期
     NSArray *dates = [title componentsSeparatedByString:@"-"];
-    self.titleLabel.text = [NSString stringWithFormat:@"%@年 - %@月",dates.firstObject,dates.lastObject];
+    [self.titleButton setTitle:[NSString stringWithFormat:@"%@年 - %@月",dates.firstObject,dates.lastObject] forState:UIControlStateNormal];
     
-    if([title isEqualToString:self.beginYearMonth]) {
+    if ([title isEqualToString:self.beginYearMonth]) {
         self.leftBtn.enabled = NO;
     } else {
         self.leftBtn.enabled = YES;
+    }
+    
+    if ([title isEqualToString:self.endYearMonth]) {
+        self.rightBtn.enabled = NO;
+    } else {
+        self.rightBtn.enabled = YES;
     }
 }
 
