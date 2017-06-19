@@ -1,13 +1,16 @@
 # ALCalendarPicker
 简洁简单的日历选择器
+
 ![License MIT](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)
 ![Pod version](https://img.shields.io/cocoapods/v/ALCalendarPicker.svg?style=flat)
 [![Platform info](https://img.shields.io/cocoapods/p/ALCalendarPicker.svg?style=flat)](http://cocoadocs.org/docsets/ALCalendarPicker)
 ![Platform version](https://img.shields.io/badge/iOS_Version->8.0-red.svg)
 
-<img alt="简洁的日历选择器" src="https://ooo.0o0.ooo/2017/06/19/59474c28ccf07.png" width="50%" />
+<img alt="简洁的日历选择器" src="https://ooo.0o0.ooo/2017/06/19/59474fc1bad50.png" width="40%" height="75%" />
 
-### 安装
+### 安装 - CocoaPods
+
+`pod ALCalendarPicker`
 
 ### 特性
 1. 可配置当前日期背景颜色,文字,背景圆角度数
