@@ -81,6 +81,8 @@ static NSString *identifier = @"dateCell";
             }
         }
     }
+    
+    
     return cell;
 }
 
@@ -90,7 +92,14 @@ static NSString *identifier = @"dateCell";
 {
     if ([self.collectionViewDelegate respondsToSelector:@selector(calendarView:didSelectItem:date:dateString:)]) {
         ALCalendarDate *date = self.dates[indexPath.row];
-        NSString *dateString = [self.yearAndMonth stringByAppendingFormat:@"-%02zd",date.date.integerValue];
+        NSString *dateString;
+        if (date.isLastMonth) { // 上个月
+            dateString = [[ALCalendarHelper lastYearAndMonth:self.yearAndMonth] stringByAppendingFormat:@"-%02zd",date.date.integerValue];
+        } else if (date.isNextMonth) { // 下个月
+            dateString = [[ALCalendarHelper nextYearAndMonth:self.yearAndMonth] stringByAppendingFormat:@"-%02zd",date.date.integerValue];
+        } else { // 这个月
+            dateString = [self.yearAndMonth stringByAppendingFormat:@"-%02zd",date.date.integerValue];
+        }
         NSDate *dateObj = [ALCalendarHelper dateStringToDate:dateString format:@"yyyy-MM-dd"];
         [self.collectionViewDelegate calendarView:self didSelectItem:date date:dateObj dateString:dateString];
     }
@@ -103,12 +112,12 @@ static NSString *identifier = @"dateCell";
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
-    return 10;
+    return ((self.width - 40) - (7 * self.width / 10)) / 7;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
-    return 10;
+    return ((self.width - 40) - (7 * self.width / 10)) / 7;
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section

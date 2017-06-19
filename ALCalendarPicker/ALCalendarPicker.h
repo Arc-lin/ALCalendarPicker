@@ -27,6 +27,7 @@
 /** 结束年月 yyyy-MM */
 @property (nonatomic, copy) NSString *endYearMonth;
 
+/** 代理 */
 @property (nonatomic, assign) id<ALCalendarPickerDelegate> delegate;
 
 /** 高亮日期 yyyy-MM-dd 格式 */

@@ -10,11 +10,21 @@
 
 @implementation ALCalendarDate
 
-+ (instancetype)dateWith:(NSString *)dateStr isNotThisMonth:(BOOL)notThisMonth
++ (instancetype)lastMonthDateWith:(NSString *)dateStr
 {
     ALCalendarDate *date = [[ALCalendarDate alloc] init];
     date.date            = dateStr;
-    date.notThisMonth    = notThisMonth;
+    date.isLastMonth     = YES;
+    date.notThisMonth    = YES;
+    return date;
+}
+
++ (instancetype)nextMonthDateWith:(NSString *)dateStr
+{
+    ALCalendarDate *date = [[ALCalendarDate alloc] init];
+    date.date            = dateStr;
+    date.isNextMonth     = YES;
+    date.notThisMonth    = YES;
     return date;
 }
 

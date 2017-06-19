@@ -69,6 +69,7 @@ static CGFloat headerHeight = 45;
         make.bottom.equalTo(@0);
         make.right.equalTo(@0);
     }];
+
 }
 
 - (void)setupTodayItemStyle:(void(^)(UIColor **backgroundColor,NSNumber **backgroundCornerRadius,UIColor **titleColor))style
@@ -221,10 +222,11 @@ static CGFloat headerHeight = 45;
 - (ALCalendarHeader *)header
 {
     if (!_header) {
-        _header                = [[ALCalendarHeader alloc] init];
+        _header                 = [[ALCalendarHeader alloc] init];
         // 初始化为当前月份和年份
-        _header.title          = [ALCalendarHelper currentYearAndMonth];
-        _header.delegate       = self;
+        _header.title           = [ALCalendarHelper currentYearAndMonth];
+        _header.backgroundColor = [UIColor whiteColor];
+        _header.delegate        = self;
     }
     return _header;
 }

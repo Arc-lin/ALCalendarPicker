@@ -47,34 +47,49 @@
     NSDate *lastMonth = [calendar dateFromComponents:comps];
     NSInteger lastMonthDays = [calendar rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:lastMonth].length;
     
+    // 上个月
     NSMutableArray *lastMonthDates = [NSMutableArray array];
     for (NSInteger i = 0; i < weekday - 1; i++) {
         NSString *d = [NSString stringWithFormat:@"%zd",lastMonthDays - i];
-        ALCalendarDate *dat = [ALCalendarDate dateWith:d isNotThisMonth:YES];
+        ALCalendarDate *dat = [ALCalendarDate lastMonthDateWith:d];
         [lastMonthDates addObject:dat];
     }
     lastMonthDates = [lastMonthDates reverseObjectEnumerator].allObjects.mutableCopy;
     
+    // 这个月
     NSMutableArray *thisMonthDates = [NSMutableArray array];
     for (NSInteger i = 1 ; i <= days ; i++) {
         NSString *d = [NSString stringWithFormat:@"%zd",i];
-        ALCalendarDate *dat = [ALCalendarDate dateWith:d isNotThisMonth:NO];
+        ALCalendarDate *dat = [[ALCalendarDate alloc] init];
+        dat.date = d;
         if ([[ym stringByAppendingFormat:@"-%@",d] isEqualToString:[self today]]) { // 判断今天
             dat.isToday = YES;
         }
         [thisMonthDates addObject:dat];
     }
-    
-    NSMutableArray *nextMonthDates = [NSMutableArray array];
+   
+    // 下个月
+    NSMutableArray<ALCalendarDate *> *nextMonthDates = [NSMutableArray array];
     for (NSInteger i = 1 ; i <= 7 - lastDaysWeekDay; i++) {
         NSString *d = [NSString stringWithFormat:@"%zd",i];
-        ALCalendarDate *dat = [ALCalendarDate dateWith:d isNotThisMonth:YES];
+        ALCalendarDate *dat = [ALCalendarDate nextMonthDateWith:d];
         [nextMonthDates addObject:dat];
     }
     
     NSMutableArray *arr = [NSMutableArray arrayWithArray:lastMonthDates];
     [arr addObjectsFromArray:thisMonthDates];
     [arr addObjectsFromArray:nextMonthDates];
+    
+    
+    // 强行补齐成六行
+//    if (arr.count <= 35) {
+//        NSMutableArray *tempArr = [NSMutableArray array];
+//        for (NSInteger i = [nextMonthDates.lastObject.date integerValue] + 1; i <= [nextMonthDates.lastObject.date integerValue] + 7; i++) {
+//            ALCalendarDate *dat =[ALCalendarDate nextMonthDateWith:[NSString stringWithFormat:@"%zd",i]];
+//            [tempArr addObject:dat];
+//        }
+//        [arr addObjectsFromArray:tempArr];
+//    }
     
     return arr;
 }

@@ -95,7 +95,7 @@
     if (!_leftBtn) {
         _leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_leftBtn setImage: [self imagesNamedFromCustomBundle:@"ic_lastday"] forState:UIControlStateNormal];
-        _leftBtn.imageEdgeInsets = UIEdgeInsetsMake(30, 30, 30, 30);
+        _leftBtn.imageEdgeInsets = UIEdgeInsetsMake(30, 0, 30, 30);
         [_leftBtn addTarget:self action:@selector(leftBtnDidClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _leftBtn;
@@ -106,7 +106,7 @@
     if (!_rightBtn) {
         _rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_rightBtn setImage: [self imagesNamedFromCustomBundle:@"ic_nextday"] forState:UIControlStateNormal];
-        _rightBtn.imageEdgeInsets = UIEdgeInsetsMake(30, 30, 30, 30);
+        _rightBtn.imageEdgeInsets = UIEdgeInsetsMake(30, 30, 30, 0);
         [_rightBtn addTarget:self action:@selector(rightBtnDidClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _rightBtn;
