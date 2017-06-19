@@ -169,10 +169,10 @@ static CGFloat headerHeight = 45;
 
 #pragma mark - ALCalendarCollectionViewDelegate
 
-- (void)calendarView:(ALCalendarCollectionView *)calendarCollectionView didSelectItem:(ALCalendarDate *)date dateString:(NSString *)dateString
+- (void)calendarView:(ALCalendarCollectionView *)calendarCollectionView didSelectItem:(ALCalendarDate *)date date:(NSDate *)dateObj dateString:(NSString *)dateString
 {
-    if ([self.delegate respondsToSelector:@selector(calendarPicker:didSelectItem:dateString:)]) {
-        [self.delegate calendarPicker:self didSelectItem:date dateString:dateString];
+    if ([self.delegate respondsToSelector:@selector(calendarPicker:didSelectItem:date:dateString:)]) {
+        [self.delegate calendarPicker:self didSelectItem:date date:dateObj dateString:dateString];
     }
 }
 

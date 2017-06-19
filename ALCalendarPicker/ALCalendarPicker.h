@@ -15,7 +15,7 @@
 /**
  选择某个日期
  */
-- (void)calendarPicker:(ALCalendarPicker *)picker didSelectItem:(ALCalendarDate *)date dateString:(NSString *)dateStr;
+- (void)calendarPicker:(ALCalendarPicker *)picker didSelectItem:(ALCalendarDate *)date date:(NSDate *)dateObj dateString:(NSString *)dateStr;
 
 @end
 

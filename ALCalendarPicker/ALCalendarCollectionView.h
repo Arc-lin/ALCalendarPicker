@@ -15,7 +15,7 @@
 /** 
  * 点击了某个日期
  */
-- (void)calendarView:(ALCalendarCollectionView *)calendarCollectionView didSelectItem:(ALCalendarDate *)date dateString:(NSString *)dateString;
+- (void)calendarView:(ALCalendarCollectionView *)calendarCollectionView didSelectItem:(ALCalendarDate *)date date:(NSDate *)dateObj dateString:(NSString *)dateString;
 
 @end
 

@@ -25,4 +25,7 @@
 /** 指定某个年月yyyy-MM 得到上个年月yyyy-MM */
 + (NSString *)lastYearAndMonth:(NSString *)thisYearAndMonth;
 
+/** 字符串转NSDate */
++ (NSDate *)dateStringToDate:(NSString *)dateString format:(NSString *)format;
+
 @end

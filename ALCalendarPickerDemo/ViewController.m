@@ -46,9 +46,9 @@
     [self.view addSubview:calP];
 }
 
-- (void)calendarPicker:(ALCalendarPicker *)picker didSelectItem:(ALCalendarDate *)date dateString:(NSString *)dateStr
+- (void)calendarPicker:(ALCalendarPicker *)picker didSelectItem:(ALCalendarDate *)date date:(NSDate *)dateObj dateString:(NSString *)dateStr
 {
-    NSLog(@"%@ %@ %@",picker,date,dateStr);
+    NSLog(@"%@ %@ %@ %@",picker,date,dateStr,dateObj);
 }
 
 - (void)didReceiveMemoryWarning {

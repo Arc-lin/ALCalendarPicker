@@ -162,6 +162,8 @@
 		3562DE0E1EF78AF80073E398 /* ALCalendarPicker */ = {
 			isa = PBXGroup;
 			children = (
+				3562DE1C1EF78AF80073E398 /* ALCalendarPicker.h */,
+				3562DE1D1EF78AF80073E398 /* ALCalendarPicker.m */,
 				3562DE0F1EF78AF80073E398 /* ALCalendarCell.h */,
 				3562DE101EF78AF80073E398 /* ALCalendarCell.m */,
 				3562DE111EF78AF80073E398 /* ALCalendarCollectionView.h */,
@@ -175,8 +177,6 @@
 				3562DE191EF78AF80073E398 /* ALCalendarHelper.h */,
 				3562DE1A1EF78AF80073E398 /* ALCalendarHelper.m */,
 				3562DE1B1EF78AF80073E398 /* ALCalendarPicker.bundle */,
-				3562DE1C1EF78AF80073E398 /* ALCalendarPicker.h */,
-				3562DE1D1EF78AF80073E398 /* ALCalendarPicker.m */,
 				3562DE1E1EF78AF80073E398 /* UIView+Frame.h */,
 				3562DE1F1EF78AF80073E398 /* UIView+Frame.m */,
 			);

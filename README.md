@@ -51,7 +51,7 @@
 使用代理以响应点击事件
 
 ```
-- (void)calendarPicker:(ALCalendarPicker *)picker didSelectItem:(ALCalendarDate *)date dateString:(NSString *)dateStr;
+- (void)calendarPicker:(ALCalendarPicker *)picker didSelectItem:(ALCalendarDate *)date date:(NSDate *)dateObj dateString:(NSString *)dateStr;
 ```
 
 ### 反馈

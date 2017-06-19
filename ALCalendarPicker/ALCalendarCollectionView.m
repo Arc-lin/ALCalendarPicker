@@ -88,9 +88,11 @@ static NSString *identifier = @"dateCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.collectionViewDelegate respondsToSelector:@selector(calendarView:didSelectItem:dateString:)]) {
+    if ([self.collectionViewDelegate respondsToSelector:@selector(calendarView:didSelectItem:date:dateString:)]) {
         ALCalendarDate *date = self.dates[indexPath.row];
-        [self.collectionViewDelegate calendarView:self didSelectItem:date dateString:[self.yearAndMonth stringByAppendingFormat:@"-%02zd",date.date.integerValue]];
+        NSString *dateString = [self.yearAndMonth stringByAppendingFormat:@"-%02zd",date.date.integerValue];
+        NSDate *dateObj = [ALCalendarHelper dateStringToDate:dateString format:@"yyyy-MM-dd"];
+        [self.collectionViewDelegate calendarView:self didSelectItem:date date:dateObj dateString:dateString];
     }
 }
 
