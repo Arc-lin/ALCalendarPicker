@@ -46,8 +46,8 @@
         __strong typeof(weakSelf) strongSelf = weakSelf;
         make.left.equalTo(@15);
         make.centerY.equalTo(strongSelf.mas_centerY);
-        make.height.equalTo(@15);
-        make.width.equalTo(@15);
+        make.height.equalTo(strongSelf.mas_height);
+        make.width.equalTo(strongSelf.mas_height);
     }];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -57,10 +57,11 @@
     }];
     
     [self.rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
         make.trailing.equalTo(@-15);
         make.centerY.equalTo(weakSelf.mas_centerY);
-        make.height.equalTo(@15);
-        make.width.equalTo(@15);
+        make.height.equalTo(strongSelf.mas_height);
+        make.width.equalTo(strongSelf.mas_height);
     }];
 }
 
@@ -94,6 +95,7 @@
     if (!_leftBtn) {
         _leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_leftBtn setImage: [self imagesNamedFromCustomBundle:@"ic_lastday"] forState:UIControlStateNormal];
+        _leftBtn.imageEdgeInsets = UIEdgeInsetsMake(30, 30, 30, 30);
         [_leftBtn addTarget:self action:@selector(leftBtnDidClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _leftBtn;
@@ -104,6 +106,7 @@
     if (!_rightBtn) {
         _rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_rightBtn setImage: [self imagesNamedFromCustomBundle:@"ic_nextday"] forState:UIControlStateNormal];
+        _rightBtn.imageEdgeInsets = UIEdgeInsetsMake(30, 30, 30, 30);
         [_rightBtn addTarget:self action:@selector(rightBtnDidClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _rightBtn;

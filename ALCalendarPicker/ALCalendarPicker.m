@@ -132,6 +132,14 @@ static CGFloat headerHeight = 45;
 
 #pragma mark - UIScrollViewDelegate
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    // 到达起始时间不能滚动
+    if ([self.header.title isEqualToString:self.beginYearMonth] && scrollView.contentOffset.x < self.width) {
+        [scrollView setContentOffset:CGPointMake(self.width, 0) animated:NO];
+    }
+}
+
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
     [self.scrollView setContentOffset:CGPointMake(self.width, 0) animated:NO];

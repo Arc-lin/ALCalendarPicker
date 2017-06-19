@@ -25,7 +25,7 @@
     ALCalendarPicker *calP = [[ALCalendarPicker alloc] initWithFrame:CGRectMake(0, 64, screenSize.width, 400)];
     calP.delegate = self;
     // 起始日期
-//    calP.beginYearMonth = @"2017-01";
+    calP.beginYearMonth = @"2017-01";
     calP.hightLightItems = @[@"2017-06-17",@"2017-05-22",@"2017-06-12"];
     calP.hightlightPriority = NO;
     

@@ -26,6 +26,7 @@
 
 @interface ALCalendarHeader : UIView
 
+/** 当前年月 yyyy-MM **/
 @property (nonatomic, copy) NSString *title;
 
 /** 起始年月 yyyy-MM */
