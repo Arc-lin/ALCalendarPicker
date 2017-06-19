@@ -11,7 +11,7 @@
 
 ### 安装 - CocoaPods
 
-`pod ALCalendarPicker`
+`pod "ALCalendarPicker"`
 
 ### 特性
 1. 可配置当前日期背景颜色,文字,背景圆角度数
