@@ -14,15 +14,15 @@
 		3550991F1EF3BE12008A65CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3550991E1EF3BE12008A65CA /* Assets.xcassets */; };
 		355099221EF3BE12008A65CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 355099201EF3BE12008A65CA /* LaunchScreen.storyboard */; };
 		3550992D1EF3BE12008A65CA /* ALCalendarPickerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3550992C1EF3BE12008A65CA /* ALCalendarPickerDemoTests.m */; };
-		3550993A1EF3BE58008A65CA /* ALCalendarPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 355099391EF3BE58008A65CA /* ALCalendarPicker.m */; };
-		3550993D1EF3C7C0008A65CA /* ALCalendarHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3550993C1EF3C7C0008A65CA /* ALCalendarHeader.m */; };
-		355099441EF3CA91008A65CA /* ALCalendarCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 355099431EF3CA91008A65CA /* ALCalendarCollectionView.m */; };
-		355099471EF3CBB6008A65CA /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 355099461EF3CBB6008A65CA /* UIView+Frame.m */; };
-		3550994A1EF3D8D0008A65CA /* ALCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 355099491EF3D8D0008A65CA /* ALCalendarCell.m */; };
-		355391F51EF5256C0088F5F4 /* ALCalendarConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 355391F41EF5256C0088F5F4 /* ALCalendarConfig.m */; };
-		355490161EF42B700037B76A /* ALCalendarHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 355490151EF42B700037B76A /* ALCalendarHelper.m */; };
-		355490191EF43B100037B76A /* ALCalendarDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 355490181EF43B100037B76A /* ALCalendarDate.m */; };
-		3562DDF21EF77D6B0073E398 /* ALCalendarPicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3562DDF11EF77D6B0073E398 /* ALCalendarPicker.bundle */; };
+		3562DE201EF78AF80073E398 /* ALCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3562DE101EF78AF80073E398 /* ALCalendarCell.m */; };
+		3562DE211EF78AF80073E398 /* ALCalendarCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3562DE121EF78AF80073E398 /* ALCalendarCollectionView.m */; };
+		3562DE221EF78AF80073E398 /* ALCalendarConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3562DE141EF78AF80073E398 /* ALCalendarConfig.m */; };
+		3562DE231EF78AF80073E398 /* ALCalendarDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3562DE161EF78AF80073E398 /* ALCalendarDate.m */; };
+		3562DE241EF78AF80073E398 /* ALCalendarHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3562DE181EF78AF80073E398 /* ALCalendarHeader.m */; };
+		3562DE251EF78AF80073E398 /* ALCalendarHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3562DE1A1EF78AF80073E398 /* ALCalendarHelper.m */; };
+		3562DE261EF78AF80073E398 /* ALCalendarPicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3562DE1B1EF78AF80073E398 /* ALCalendarPicker.bundle */; };
+		3562DE271EF78AF80073E398 /* ALCalendarPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3562DE1D1EF78AF80073E398 /* ALCalendarPicker.m */; };
+		3562DE281EF78AF80073E398 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 3562DE1F1EF78AF80073E398 /* UIView+Frame.m */; };
 		B21B2A5D6EDDFD36F83467DC /* libPods-ALCalendarPickerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A70FD02F7D78E0EE9412B87E /* libPods-ALCalendarPickerDemo.a */; };
 		BF382131A61F76425BEB9716 /* libPods-ALCalendarPickerDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B5703D22E2F2589862D5B51 /* libPods-ALCalendarPickerDemoTests.a */; };
 /* End PBXBuildFile section */
@@ -52,23 +52,23 @@
 		355099281EF3BE12008A65CA /* ALCalendarPickerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ALCalendarPickerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3550992C1EF3BE12008A65CA /* ALCalendarPickerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALCalendarPickerDemoTests.m; sourceTree = "<group>"; };
 		3550992E1EF3BE12008A65CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		355099381EF3BE58008A65CA /* ALCalendarPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALCalendarPicker.h; sourceTree = "<group>"; };
-		355099391EF3BE58008A65CA /* ALCalendarPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALCalendarPicker.m; sourceTree = "<group>"; };
-		3550993B1EF3C7C0008A65CA /* ALCalendarHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALCalendarHeader.h; sourceTree = "<group>"; };
-		3550993C1EF3C7C0008A65CA /* ALCalendarHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALCalendarHeader.m; sourceTree = "<group>"; };
-		355099421EF3CA91008A65CA /* ALCalendarCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALCalendarCollectionView.h; sourceTree = "<group>"; };
-		355099431EF3CA91008A65CA /* ALCalendarCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALCalendarCollectionView.m; sourceTree = "<group>"; };
-		355099451EF3CBB6008A65CA /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
-		355099461EF3CBB6008A65CA /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
-		355099481EF3D8D0008A65CA /* ALCalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALCalendarCell.h; sourceTree = "<group>"; };
-		355099491EF3D8D0008A65CA /* ALCalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALCalendarCell.m; sourceTree = "<group>"; };
-		355391F31EF5256C0088F5F4 /* ALCalendarConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALCalendarConfig.h; sourceTree = "<group>"; };
-		355391F41EF5256C0088F5F4 /* ALCalendarConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALCalendarConfig.m; sourceTree = "<group>"; };
-		355490141EF42B700037B76A /* ALCalendarHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALCalendarHelper.h; sourceTree = "<group>"; };
-		355490151EF42B700037B76A /* ALCalendarHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALCalendarHelper.m; sourceTree = "<group>"; };
-		355490171EF43B100037B76A /* ALCalendarDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALCalendarDate.h; sourceTree = "<group>"; };
-		355490181EF43B100037B76A /* ALCalendarDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALCalendarDate.m; sourceTree = "<group>"; };
-		3562DDF11EF77D6B0073E398 /* ALCalendarPicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ALCalendarPicker.bundle; sourceTree = "<group>"; };
+		3562DE0F1EF78AF80073E398 /* ALCalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALCalendarCell.h; sourceTree = "<group>"; };
+		3562DE101EF78AF80073E398 /* ALCalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALCalendarCell.m; sourceTree = "<group>"; };
+		3562DE111EF78AF80073E398 /* ALCalendarCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALCalendarCollectionView.h; sourceTree = "<group>"; };
+		3562DE121EF78AF80073E398 /* ALCalendarCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALCalendarCollectionView.m; sourceTree = "<group>"; };
+		3562DE131EF78AF80073E398 /* ALCalendarConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALCalendarConfig.h; sourceTree = "<group>"; };
+		3562DE141EF78AF80073E398 /* ALCalendarConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALCalendarConfig.m; sourceTree = "<group>"; };
+		3562DE151EF78AF80073E398 /* ALCalendarDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALCalendarDate.h; sourceTree = "<group>"; };
+		3562DE161EF78AF80073E398 /* ALCalendarDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALCalendarDate.m; sourceTree = "<group>"; };
+		3562DE171EF78AF80073E398 /* ALCalendarHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALCalendarHeader.h; sourceTree = "<group>"; };
+		3562DE181EF78AF80073E398 /* ALCalendarHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALCalendarHeader.m; sourceTree = "<group>"; };
+		3562DE191EF78AF80073E398 /* ALCalendarHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALCalendarHelper.h; sourceTree = "<group>"; };
+		3562DE1A1EF78AF80073E398 /* ALCalendarHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALCalendarHelper.m; sourceTree = "<group>"; };
+		3562DE1B1EF78AF80073E398 /* ALCalendarPicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ALCalendarPicker.bundle; sourceTree = "<group>"; };
+		3562DE1C1EF78AF80073E398 /* ALCalendarPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALCalendarPicker.h; sourceTree = "<group>"; };
+		3562DE1D1EF78AF80073E398 /* ALCalendarPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALCalendarPicker.m; sourceTree = "<group>"; };
+		3562DE1E1EF78AF80073E398 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		3562DE1F1EF78AF80073E398 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		9EB5CBC74A7797022A62DA31 /* Pods-ALCalendarPickerDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ALCalendarPickerDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ALCalendarPickerDemoTests/Pods-ALCalendarPickerDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A70FD02F7D78E0EE9412B87E /* libPods-ALCalendarPickerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ALCalendarPickerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E78B7B17ACFC221EF3C0D782 /* Pods-ALCalendarPickerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ALCalendarPickerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ALCalendarPickerDemo/Pods-ALCalendarPickerDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 		355099111EF3BE12008A65CA /* ALCalendarPickerDemo */ = {
 			isa = PBXGroup;
 			children = (
-				355099371EF3BE23008A65CA /* ALCalendarPicker */,
+				3562DE0E1EF78AF80073E398 /* ALCalendarPicker */,
 				355099151EF3BE12008A65CA /* AppDelegate.h */,
 				355099161EF3BE12008A65CA /* AppDelegate.m */,
 				355099181EF3BE12008A65CA /* ViewController.h */,
@@ -159,29 +159,29 @@
 			path = ALCalendarPickerDemoTests;
 			sourceTree = "<group>";
 		};
-		355099371EF3BE23008A65CA /* ALCalendarPicker */ = {
+		3562DE0E1EF78AF80073E398 /* ALCalendarPicker */ = {
 			isa = PBXGroup;
 			children = (
-				355099381EF3BE58008A65CA /* ALCalendarPicker.h */,
-				355099391EF3BE58008A65CA /* ALCalendarPicker.m */,
-				3550993B1EF3C7C0008A65CA /* ALCalendarHeader.h */,
-				3550993C1EF3C7C0008A65CA /* ALCalendarHeader.m */,
-				355099421EF3CA91008A65CA /* ALCalendarCollectionView.h */,
-				355099431EF3CA91008A65CA /* ALCalendarCollectionView.m */,
-				355099481EF3D8D0008A65CA /* ALCalendarCell.h */,
-				355099491EF3D8D0008A65CA /* ALCalendarCell.m */,
-				355490141EF42B700037B76A /* ALCalendarHelper.h */,
-				355490151EF42B700037B76A /* ALCalendarHelper.m */,
-				355490171EF43B100037B76A /* ALCalendarDate.h */,
-				355490181EF43B100037B76A /* ALCalendarDate.m */,
-				355391F31EF5256C0088F5F4 /* ALCalendarConfig.h */,
-				355391F41EF5256C0088F5F4 /* ALCalendarConfig.m */,
-				355099451EF3CBB6008A65CA /* UIView+Frame.h */,
-				355099461EF3CBB6008A65CA /* UIView+Frame.m */,
-				3562DDF11EF77D6B0073E398 /* ALCalendarPicker.bundle */,
+				3562DE0F1EF78AF80073E398 /* ALCalendarCell.h */,
+				3562DE101EF78AF80073E398 /* ALCalendarCell.m */,
+				3562DE111EF78AF80073E398 /* ALCalendarCollectionView.h */,
+				3562DE121EF78AF80073E398 /* ALCalendarCollectionView.m */,
+				3562DE131EF78AF80073E398 /* ALCalendarConfig.h */,
+				3562DE141EF78AF80073E398 /* ALCalendarConfig.m */,
+				3562DE151EF78AF80073E398 /* ALCalendarDate.h */,
+				3562DE161EF78AF80073E398 /* ALCalendarDate.m */,
+				3562DE171EF78AF80073E398 /* ALCalendarHeader.h */,
+				3562DE181EF78AF80073E398 /* ALCalendarHeader.m */,
+				3562DE191EF78AF80073E398 /* ALCalendarHelper.h */,
+				3562DE1A1EF78AF80073E398 /* ALCalendarHelper.m */,
+				3562DE1B1EF78AF80073E398 /* ALCalendarPicker.bundle */,
+				3562DE1C1EF78AF80073E398 /* ALCalendarPicker.h */,
+				3562DE1D1EF78AF80073E398 /* ALCalendarPicker.m */,
+				3562DE1E1EF78AF80073E398 /* UIView+Frame.h */,
+				3562DE1F1EF78AF80073E398 /* UIView+Frame.m */,
 			);
 			path = ALCalendarPicker;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		DE4900DB7F19D8BCA1FF1BD3 /* Pods */ = {
 			isa = PBXGroup;
@@ -284,7 +284,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3562DDF21EF77D6B0073E398 /* ALCalendarPicker.bundle in Resources */,
+				3562DE261EF78AF80073E398 /* ALCalendarPicker.bundle in Resources */,
 				355099221EF3BE12008A65CA /* LaunchScreen.storyboard in Resources */,
 				3550991F1EF3BE12008A65CA /* Assets.xcassets in Resources */,
 				3550991D1EF3BE12008A65CA /* Main.storyboard in Resources */,
@@ -398,17 +398,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3562DE211EF78AF80073E398 /* ALCalendarCollectionView.m in Sources */,
+				3562DE231EF78AF80073E398 /* ALCalendarDate.m in Sources */,
+				3562DE271EF78AF80073E398 /* ALCalendarPicker.m in Sources */,
 				3550991A1EF3BE12008A65CA /* ViewController.m in Sources */,
-				355099441EF3CA91008A65CA /* ALCalendarCollectionView.m in Sources */,
+				3562DE251EF78AF80073E398 /* ALCalendarHelper.m in Sources */,
+				3562DE221EF78AF80073E398 /* ALCalendarConfig.m in Sources */,
 				355099171EF3BE12008A65CA /* AppDelegate.m in Sources */,
-				355490161EF42B700037B76A /* ALCalendarHelper.m in Sources */,
-				355490191EF43B100037B76A /* ALCalendarDate.m in Sources */,
-				355099471EF3CBB6008A65CA /* UIView+Frame.m in Sources */,
-				355391F51EF5256C0088F5F4 /* ALCalendarConfig.m in Sources */,
-				3550993A1EF3BE58008A65CA /* ALCalendarPicker.m in Sources */,
-				3550993D1EF3C7C0008A65CA /* ALCalendarHeader.m in Sources */,
+				3562DE241EF78AF80073E398 /* ALCalendarHeader.m in Sources */,
+				3562DE201EF78AF80073E398 /* ALCalendarCell.m in Sources */,
 				355099141EF3BE12008A65CA /* main.m in Sources */,
-				3550994A1EF3D8D0008A65CA /* ALCalendarCell.m in Sources */,
+				3562DE281EF78AF80073E398 /* UIView+Frame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

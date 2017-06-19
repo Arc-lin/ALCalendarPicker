@@ -1,4 +1,5 @@
 # ALCalendarPicker
+
 简洁简单的日历选择器
 
 ![License MIT](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)
@@ -45,6 +46,12 @@
     }];
     
     [self.view addSubview:calP];
+```
+
+使用代理以响应点击事件
+
+```
+- (void)calendarPicker:(ALCalendarPicker *)picker didSelectItem:(ALCalendarDate *)date dateString:(NSString *)dateStr;
 ```
 
 ### 反馈
