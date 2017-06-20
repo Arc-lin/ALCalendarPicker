@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define ALPickerHeight 45 + (([UIScreen mainScreen].bounds.size.width / 10) * 7) + ((([UIScreen mainScreen].bounds.size.width - 40) - (7 * [UIScreen mainScreen].bounds.size.width / 10)) / 7) * 8
+
 @class ALCalendarPicker,ALCalendarDate;
 
 @protocol ALCalendarPickerDelegate <NSObject>

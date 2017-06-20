@@ -88,6 +88,21 @@
     return [UIImage imageWithContentsOfFile:img_path];
 }
 
+- (void)verifyBeginAndEnd
+{
+    if ([self.title isEqualToString:self.beginYearMonth]) {
+        self.leftBtn.enabled = NO;
+    } else {
+        self.leftBtn.enabled = YES;
+    }
+    
+    if ([self.title isEqualToString:self.endYearMonth]) {
+        self.rightBtn.enabled = NO;
+    } else {
+        self.rightBtn.enabled = YES;
+    }
+}
+
 #pragma mark - setter & getter
 
 - (UIButton *)leftBtn
@@ -129,17 +144,24 @@
     NSArray *dates = [title componentsSeparatedByString:@"-"];
     [self.titleButton setTitle:[NSString stringWithFormat:@"%@年 - %@月",dates.firstObject,dates.lastObject] forState:UIControlStateNormal];
     
-    if ([title isEqualToString:self.beginYearMonth]) {
-        self.leftBtn.enabled = NO;
-    } else {
-        self.leftBtn.enabled = YES;
-    }
+    // 验证开始时间和结束时间
+    [self verifyBeginAndEnd];
+}
+
+- (void)setBeginYearMonth:(NSString *)beginYearMonth
+{
+    _beginYearMonth = beginYearMonth;
     
-    if ([title isEqualToString:self.endYearMonth]) {
-        self.rightBtn.enabled = NO;
-    } else {
-        self.rightBtn.enabled = YES;
-    }
+    // 验证开始时间和结束时间
+    [self verifyBeginAndEnd];
+}
+
+- (void)setEndYearMonth:(NSString *)endYearMonth
+{
+    _endYearMonth = endYearMonth;
+    
+    // 验证开始时间和结束时间
+    [self verifyBeginAndEnd];
 }
 
 @end

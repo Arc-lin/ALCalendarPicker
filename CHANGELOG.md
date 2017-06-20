@@ -4,7 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ---
 
-## [1.2.1](https://github.com/Arc-lin/ALCalendarPicker/releases/tag/1.2.0) (06/19/2017)
+## [1.2.2](https://github.com/Arc-lin/ALCalendarPicker/releases/tag/1.2.2) (06/20/2017)
+
+#### Update
+* 修复了开始/结束时间是当前年月的bug
+
+## [1.2.1](https://github.com/Arc-lin/ALCalendarPicker/releases/tag/1.2.1) (06/19/2017)
 
 #### Update
 * 修复了点击时间回调不正确的bug

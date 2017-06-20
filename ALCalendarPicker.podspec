@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ALCalendarPicker"
-  s.version      = "1.2.1"
+  s.version      = "1.2.2"
   s.summary      = "简洁简单的日历选择器"
 
   # This description is used to generate tags and improve search results.
