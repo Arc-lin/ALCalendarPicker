@@ -64,17 +64,24 @@ static NSString *identifier = @"dateCell";
         cell.date = date;
         
         /** 当前显示的日期 */
-        NSString *currentDate = [self.yearAndMonth stringByAppendingFormat:@"-%02zd",date.date.integerValue];
+        NSString *dateString;
+        if (date.isLastMonth) { // 上个月
+            dateString = [[ALCalendarHelper lastYearAndMonth:self.yearAndMonth] stringByAppendingFormat:@"-%02zd",date.date.integerValue];
+        } else if (date.isNextMonth) { // 下个月
+            dateString = [[ALCalendarHelper nextYearAndMonth:self.yearAndMonth] stringByAppendingFormat:@"-%02zd",date.date.integerValue];
+        } else { // 这个月
+            dateString = [self.yearAndMonth stringByAppendingFormat:@"-%02zd",date.date.integerValue];
+        }
         
-        if ([self.config.heightlightDates containsObject:currentDate]) {
+        if ([self.config.heightlightDates containsObject:dateString]) {
             cell.backgroundColor = self.config.hl_backgroundColor;
             cell.layer.cornerRadius = self.config.hl_backgroundCornerRadius.floatValue;
             cell.dateLabel.textColor = self.config.hl_textColor;
         }
         
         if (date.isToday) {
-            if (![self.config.heightlightDates containsObject:currentDate] ||
-                ([self.config.heightlightDates containsObject:currentDate] && !self.config.hightlightPriority)) {
+            if (![self.config.heightlightDates containsObject:dateString] ||
+                ([self.config.heightlightDates containsObject:dateString] && !self.config.hightlightPriority)) {
                 cell.backgroundColor     = self.config.tod_backgroundColor;
                 cell.layer.cornerRadius  = self.config.tod_backgroundCornerRadius.floatValue;
                 cell.dateLabel.textColor = self.config.tod_textColor;

@@ -30,7 +30,7 @@
 //    calP.beginYearMonth = @"2017-06";
     // 结束日期
 //    calP.endYearMonth = @"2017-11";
-    calP.hightLightItems = @[@"2017-06-17",@"2017-05-22",@"2017-06-12"];
+    calP.hightLightItems = @[@"2017-06-01",@"2017-05-22",@"2017-06-12"];
     calP.hightlightPriority = NO;
     
     // 高亮颜色
@@ -48,11 +48,17 @@
     }];
     
     [self.view addSubview:calP];
+    
 }
 
 - (void)calendarPicker:(ALCalendarPicker *)picker didSelectItem:(ALCalendarDate *)date date:(NSDate *)dateObj dateString:(NSString *)dateStr
 {
     NSLog(@"%@ %@ %@ %@",picker,date,dateStr,dateObj);
+
+    // 动态添加高亮日期
+//    NSMutableArray *array = [NSMutableArray arrayWithArray: picker.hightLightItems];
+//    [array addObject:dateStr];
+//    picker.hightLightItems = array;
 }
 
 - (void)didReceiveMemoryWarning {

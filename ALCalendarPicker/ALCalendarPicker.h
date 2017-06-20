@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+// 当宽度为屏幕宽度时,自动计算高度
 #define ALPickerHeight 45 + (([UIScreen mainScreen].bounds.size.width / 10) * 7) + ((([UIScreen mainScreen].bounds.size.width - 40) - (7 * [UIScreen mainScreen].bounds.size.width / 10)) / 7) * 8
 
 @class ALCalendarPicker,ALCalendarDate;
@@ -37,6 +38,9 @@
 
 /** 高亮日期优先 当高亮日期与当日日期的重叠的时候优先使用高亮日期的样式 */
 @property (nonatomic, assign) BOOL hightlightPriority;
+
+/** 重新加载选择器 */
+- (void)reloadPicker;
 
 /** 高亮的日期的样式 */
 - (void)setupHightLightItemStyle:(void(^)(UIColor **backgroundColor,NSNumber **backgroundCornerRadius,UIColor **titleColor))style;

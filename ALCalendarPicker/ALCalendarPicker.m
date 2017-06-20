@@ -72,6 +72,13 @@ static CGFloat headerHeight = 45;
 
 }
 
+- (void)reloadPicker
+{
+    for (ALCalendarCollectionView *collectionView in self.collectionViews) {
+        [collectionView reloadData];
+    }
+}
+
 - (void)setupTodayItemStyle:(void(^)(UIColor **backgroundColor,NSNumber **backgroundCornerRadius,UIColor **titleColor))style
 {
     UIColor *backgroundColor;
@@ -292,6 +299,7 @@ static CGFloat headerHeight = 45;
 {
     _hightLightItems = hightLightItems;
     self.config.heightlightDates = hightLightItems;
+    [self reloadPicker];
 }
 
 - (void)setHightlightPriority:(BOOL)hightlightPriority

@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 
 #### Update
 * 修复了开始/结束时间是当前年月的bug
+* 修复了一些其他的已知问题
 
 ## [1.2.1](https://github.com/Arc-lin/ALCalendarPicker/releases/tag/1.2.1) (06/19/2017)
 
