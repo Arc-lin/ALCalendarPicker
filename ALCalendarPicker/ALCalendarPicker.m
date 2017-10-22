@@ -117,6 +117,25 @@ static CGFloat headerHeight = 45;
     }
 }
 
+- (void)setupSelectedItemStyle:(void(^)(UIColor **backgroundColor,NSNumber **backgroundCornerRadius,UIColor **titleColor))style
+{
+    UIColor *backgroundColor;
+    UIColor *titleColor;
+    NSNumber *backgroundCornerRadius;
+    if (style) {
+        style(&backgroundColor,&backgroundCornerRadius,&titleColor);
+    }
+    // 配置高亮样式
+    self.config.sel_backgroundColor = backgroundColor;
+    self.config.sel_textColor = titleColor;
+    self.config.sel_backgroundCornerRadius = backgroundCornerRadius;
+    
+    for (ALCalendarCollectionView *collectionView in self.collectionViews) {
+        collectionView.config = self.config;
+        [collectionView reloadData];
+    }
+}
+
 #pragma mark - Private Method
 
 - (void)showLeftCalendar
@@ -299,6 +318,13 @@ static CGFloat headerHeight = 45;
 {
     _hightLightItems = hightLightItems;
     self.config.heightlightDates = hightLightItems;
+    [self reloadPicker];
+}
+
+- (void)setSelectedItems:(NSArray<NSString *> *)selectedItems
+{
+    _selectedItems = selectedItems;
+    self.config.selectedDates = selectedItems;
     [self reloadPicker];
 }
 

@@ -29,6 +29,9 @@
 /** 高亮日期 */
 @property (nonatomic, strong) NSArray<NSString *> *heightlightDates;
 
+/** 选择日期 */
+@property (nonatomic, strong) NSArray<NSString *> *selectedDates;
+
 /** 文字颜色 */
 @property (nonatomic, strong) UIColor *hl_textColor;
 
@@ -37,5 +40,16 @@
 
 /** 圆角 */
 @property (nonatomic, strong) NSNumber *hl_backgroundCornerRadius;
+
+/**** 选中日期 ****/
+
+/** 文字颜色 */
+@property (nonatomic, strong) UIColor *sel_textColor;
+
+/** 背景颜色 */
+@property (nonatomic, strong) UIColor *sel_backgroundColor;
+
+/** 圆角 */
+@property (nonatomic, strong) NSNumber *sel_backgroundCornerRadius;
 
 @end

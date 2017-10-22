@@ -18,6 +18,7 @@
 2. 可配置特殊高亮日期(如预约日期),并且可以配置高亮日期背景颜色,文字,背景圆角度数
 3. 点击日期代理回调
 4. 支持设定起始日期
+5. 支持点击给日期添加选择样式
 
 ### 关于时间区间
 
@@ -51,6 +52,13 @@
     // 今天日期样式
     [calP setupTodayItemStyle:^(UIColor *__autoreleasing *backgroundColor, NSNumber *__autoreleasing *backgroundCornerRadius, UIColor *__autoreleasing *titleColor) {
         *backgroundColor = [UIColor colorWithRed:78.0/255.0 green:133.0/255.0 blue:222.0/255.0 alpha:1];
+        *backgroundCornerRadius = @(screenSize.width / 20); // 因为宽度是屏幕宽度,宽度 / 10 是cell 宽高 , cell宽高 / 2 为圆形
+        *titleColor = [UIColor whiteColor];
+    }];
+    
+    // 选择日期颜色
+    [calP setupSelectedItemStyle:^(UIColor *__autoreleasing *backgroundColor, NSNumber *__autoreleasing *backgroundCornerRadius, UIColor *__autoreleasing *titleColor) {
+        *backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.5];
         *backgroundCornerRadius = @(screenSize.width / 20); // 因为宽度是屏幕宽度,宽度 / 10 是cell 宽高 , cell宽高 / 2 为圆形
         *titleColor = [UIColor whiteColor];
     }];

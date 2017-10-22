@@ -36,6 +36,9 @@
 /** 高亮日期 yyyy-MM-dd 格式 */
 @property (nonatomic, assign) NSArray<NSString *> *hightLightItems;
 
+/** 选择日期 yyyy-MM-dd 格式 */
+@property (nonatomic, assign) NSArray<NSString *> *selectedItems;
+
 /** 高亮日期优先 当高亮日期与当日日期的重叠的时候优先使用高亮日期的样式 */
 @property (nonatomic, assign) BOOL hightlightPriority;
 
@@ -47,5 +50,8 @@
 
 /** 当日日期的样式 */
 - (void)setupTodayItemStyle:(void(^)(UIColor **backgroundColor,NSNumber **backgroundCornerRadius,UIColor **titleColor))style;
+
+/** 选择日期的样式 */
+- (void)setupSelectedItemStyle:(void(^)(UIColor **backgroundColor,NSNumber **backgroundCornerRadius,UIColor **titleColor))style;
 
 @end

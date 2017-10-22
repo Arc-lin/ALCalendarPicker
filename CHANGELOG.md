@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [1.3.0](https://github.com/Arc-lin/ALCalendarPicker/releases/tag/1.3.0) (10/22/2017)
+
+#### Update
+* 添加了选择日期的样式,点击日期可以添加样式
+* 修复了一些其他的已知问题
+
 ## [1.2.2](https://github.com/Arc-lin/ALCalendarPicker/releases/tag/1.2.2) (06/20/2017)
 
 #### Update

@@ -78,6 +78,11 @@ static NSString *identifier = @"dateCell";
             cell.layer.cornerRadius = self.config.hl_backgroundCornerRadius.floatValue;
             cell.dateLabel.textColor = self.config.hl_textColor;
         }
+        if ([self.config.selectedDates containsObject:dateString]) {
+            cell.backgroundColor = self.config.sel_backgroundColor;
+            cell.layer.cornerRadius = self.config.sel_backgroundCornerRadius.floatValue;
+            cell.dateLabel.textColor = self.config.sel_textColor;
+        }
         
         if (date.isToday) {
             if (![self.config.heightlightDates containsObject:dateString] ||

@@ -20,16 +20,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor grayColor];
+//    self.view.backgroundColor = [UIColor grayColor];
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     
     ALCalendarPicker *calP = [[ALCalendarPicker alloc] initWithFrame:CGRectMake(0, 64, screenSize.width, ALPickerHeight)];
     calP.delegate = self;
     // 起始日期
-//    calP.beginYearMonth = @"2017-06";
+    calP.beginYearMonth = @"2017-01";
     // 结束日期
-//    calP.endYearMonth = @"2017-11";
+    calP.endYearMonth = @"2017-12";
     calP.hightLightItems = @[@"2017-06-01",@"2017-05-22",@"2017-06-12"];
     calP.hightlightPriority = NO;
     
@@ -47,6 +50,13 @@
         *titleColor = [UIColor whiteColor];
     }];
     
+    // 选择日期颜色
+    [calP setupSelectedItemStyle:^(UIColor *__autoreleasing *backgroundColor, NSNumber *__autoreleasing *backgroundCornerRadius, UIColor *__autoreleasing *titleColor) {
+        *backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.5];
+        *backgroundCornerRadius = @(screenSize.width / 20); // 因为宽度是屏幕宽度,宽度 / 10 是cell 宽高 , cell宽高 / 2 为圆形
+        *titleColor = [UIColor whiteColor];
+    }];
+    
     [self.view addSubview:calP];
     
 }
@@ -55,10 +65,10 @@
 {
     NSLog(@"%@ %@ %@ %@",picker,date,dateStr,dateObj);
 
-    // 动态添加高亮日期
-//    NSMutableArray *array = [NSMutableArray arrayWithArray: picker.hightLightItems];
-//    [array addObject:dateStr];
-//    picker.hightLightItems = array;
+    // 动态添加选择日期
+    NSMutableArray *array = [NSMutableArray arrayWithArray: picker.selectedItems];
+    [array addObject:dateStr];
+    picker.selectedItems = array;
 }
 
 - (void)didReceiveMemoryWarning {
