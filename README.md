@@ -74,7 +74,7 @@
 
 ### 反馈
 
-使用过程中如果发现问题请issue我 或者发送邮件到arclin@dankal.cn
+使用过程中如果发现问题请issue我 或者发送邮件到arclin325@gmail.com
 
 ### 证书
 
