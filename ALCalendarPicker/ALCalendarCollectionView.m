@@ -14,7 +14,7 @@
 #import "ALCalendarHelper.h"
 #import "ALCalendarConfig.h"
 
-#import "UIView+Frame.h"
+#import "UIView+ALFrame.h"
 
 @interface ALCalendarCollectionView()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -119,17 +119,17 @@ static NSString *identifier = @"dateCell";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(self.width / 10, self.width / 10);
+    return CGSizeMake(self.al_width / 10, self.al_width / 10);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
-    return ((self.width - 40) - (7 * self.width / 10)) / 7;
+    return ((self.al_width - 40) - (7 * self.al_width / 10)) / 7;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
-    return ((self.width - 40) - (7 * self.width / 10)) / 7;
+    return ((self.al_width - 40) - (7 * self.al_width / 10)) / 7;
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section

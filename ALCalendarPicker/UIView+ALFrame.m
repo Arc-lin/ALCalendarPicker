@@ -6,79 +6,78 @@
 //  Copyright © 2015年 sziit. All rights reserved.
 //
 
-#import "UIView+Frame.h"
+#import "UIView+ALFrame.h"
 
-@implementation UIView (Frame)
+@implementation UIView (ALFrame)
 
-- (void)setCenterX:(CGFloat)centerX{
+- (void)setAl_centerX:(CGFloat)al_centerX {
     CGPoint center = self.center;
-    center.x = centerX;
+    center.x = al_centerX;
     self.center = center;
 }
 
-- (CGFloat)centerX{
+- (CGFloat)al_centerX {
     return self.center.x;
 }
 
-
-- (void)setCenterY:(CGFloat)centerY{
+- (void)setAl_centerY:(CGFloat)al_centerY {
     CGPoint center = self.center;
-    center.y = centerY;
+    center.y = al_centerY;
     self.center = center;
 }
 
-- (CGFloat)centerY{
+- (CGFloat)al_centerY {
     return self.center.y;
 }
 
-- (void)setSize:(CGSize)size{
+- (void)setAl_size:(CGSize)al_size {
     CGRect frame = self.frame;
-    frame.size = size;
+    frame.size = al_size;
     self.frame = frame;
 }
 
-- (CGSize)size{
+- (CGSize)al_size {
     return self.frame.size;
 }
 
-- (void)setX:(CGFloat)x{
+- (void)setAl_x:(CGFloat)al_x {
     CGRect frame = self.frame;
-    frame.origin.x = x;
+    frame.origin.x = al_x;
     self.frame = frame;
 }
 
-- (CGFloat)x{
+- (CGFloat)al_x {
     return self.frame.origin.x;
 }
 
-- (void)setY:(CGFloat)y{
+- (void)setAl_y:(CGFloat)al_y {
     CGRect frame = self.frame;
-    frame.origin.y = y;
+    frame.origin.y = al_y;
     self.frame = frame;
 }
 
-- (CGFloat)y{
+- (CGFloat)al_y {
     return self.frame.origin.y;
     
 }
 
-- (void)setWidth:(CGFloat)width{
+- (void)setAl_width:(CGFloat)al_width {
     CGRect frame = self.frame;
-    frame.size.width = width;
+    frame.size.width = al_width;
     self.frame = frame;
 }
 
-- (CGFloat)width{
+- (CGFloat)al_width {
     return self.frame.size.width;
 }
 
-- (void)setHeight:(CGFloat)height{
+- (void)setAl_height:(CGFloat)al_height {
     CGRect frame = self.frame;
-    frame.size.height = height;
+    frame.size.height = al_height;
     self.frame = frame;
 }
 
-- (CGFloat)height{
+- (CGFloat)al_height {
     return self.frame.size.height;
 }
 

@@ -22,7 +22,7 @@
 		3562DE251EF78AF80073E398 /* ALCalendarHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3562DE1A1EF78AF80073E398 /* ALCalendarHelper.m */; };
 		3562DE261EF78AF80073E398 /* ALCalendarPicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3562DE1B1EF78AF80073E398 /* ALCalendarPicker.bundle */; };
 		3562DE271EF78AF80073E398 /* ALCalendarPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3562DE1D1EF78AF80073E398 /* ALCalendarPicker.m */; };
-		3562DE281EF78AF80073E398 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 3562DE1F1EF78AF80073E398 /* UIView+Frame.m */; };
+		3562DE281EF78AF80073E398 /* UIView+ALFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 3562DE1F1EF78AF80073E398 /* UIView+ALFrame.m */; };
 		B21B2A5D6EDDFD36F83467DC /* libPods-ALCalendarPickerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A70FD02F7D78E0EE9412B87E /* libPods-ALCalendarPickerDemo.a */; };
 		BF382131A61F76425BEB9716 /* libPods-ALCalendarPickerDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B5703D22E2F2589862D5B51 /* libPods-ALCalendarPickerDemoTests.a */; };
 /* End PBXBuildFile section */
@@ -67,8 +67,8 @@
 		3562DE1B1EF78AF80073E398 /* ALCalendarPicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ALCalendarPicker.bundle; sourceTree = "<group>"; };
 		3562DE1C1EF78AF80073E398 /* ALCalendarPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALCalendarPicker.h; sourceTree = "<group>"; };
 		3562DE1D1EF78AF80073E398 /* ALCalendarPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALCalendarPicker.m; sourceTree = "<group>"; };
-		3562DE1E1EF78AF80073E398 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
-		3562DE1F1EF78AF80073E398 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		3562DE1E1EF78AF80073E398 /* UIView+ALFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ALFrame.h"; sourceTree = "<group>"; };
+		3562DE1F1EF78AF80073E398 /* UIView+ALFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ALFrame.m"; sourceTree = "<group>"; };
 		9EB5CBC74A7797022A62DA31 /* Pods-ALCalendarPickerDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ALCalendarPickerDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ALCalendarPickerDemoTests/Pods-ALCalendarPickerDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A70FD02F7D78E0EE9412B87E /* libPods-ALCalendarPickerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ALCalendarPickerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E78B7B17ACFC221EF3C0D782 /* Pods-ALCalendarPickerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ALCalendarPickerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ALCalendarPickerDemo/Pods-ALCalendarPickerDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -177,8 +177,8 @@
 				3562DE191EF78AF80073E398 /* ALCalendarHelper.h */,
 				3562DE1A1EF78AF80073E398 /* ALCalendarHelper.m */,
 				3562DE1B1EF78AF80073E398 /* ALCalendarPicker.bundle */,
-				3562DE1E1EF78AF80073E398 /* UIView+Frame.h */,
-				3562DE1F1EF78AF80073E398 /* UIView+Frame.m */,
+				3562DE1E1EF78AF80073E398 /* UIView+ALFrame.h */,
+				3562DE1F1EF78AF80073E398 /* UIView+ALFrame.m */,
 			);
 			path = ALCalendarPicker;
 			sourceTree = SOURCE_ROOT;
@@ -249,8 +249,7 @@
 				TargetAttributes = {
 					3550990E1EF3BE12008A65CA = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 3KUDYRU22W;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					355099271EF3BE12008A65CA = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -408,7 +407,7 @@
 				3562DE241EF78AF80073E398 /* ALCalendarHeader.m in Sources */,
 				3562DE201EF78AF80073E398 /* ALCalendarCell.m in Sources */,
 				355099141EF3BE12008A65CA /* main.m in Sources */,
-				3562DE281EF78AF80073E398 /* UIView+Frame.m in Sources */,
+				3562DE281EF78AF80073E398 /* UIView+ALFrame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,12 +546,14 @@
 			baseConfigurationReference = FB8B6271FB940DBF35604BDA /* Pods-ALCalendarPickerDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3KUDYRU22W;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ALCalendarPickerDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.arclin.ALCalendarPickerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -561,12 +562,14 @@
 			baseConfigurationReference = E78B7B17ACFC221EF3C0D782 /* Pods-ALCalendarPickerDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3KUDYRU22W;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ALCalendarPickerDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.arclin.ALCalendarPickerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

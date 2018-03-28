@@ -1,8 +1,19 @@
 
 # Change Log
+
 All notable changes to this project will be documented in this file.
 
 ---
+
+## [1.4.0](https://github.com/Arc-lin/ALCalendarPicker/releases/tag/1.4.0) (03/28/2018)
+
+### Update
+
+* 添加了点击箭头按钮的回调方法和进入每个月历后的回调方法
+* 把原先的NSAssert改为NSLog提醒
+* 把原来的UIView分类加上了AL的前缀
+* 添加了可以直接跳转到某个月历的方法
+
 
 ## [1.3.0](https://github.com/Arc-lin/ALCalendarPicker/releases/tag/1.3.0) (10/22/2017)
 

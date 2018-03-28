@@ -19,6 +19,7 @@
 3. 点击日期代理回调
 4. 支持设定起始日期
 5. 支持点击给日期添加选择样式
+6. 支持跳转到区间内某个年月(2018-03-28更新)
 
 ### 关于时间区间
 
@@ -66,10 +67,18 @@
     [self.view addSubview:calP];
 ```
 
-使用代理以响应点击事件
+代理
+
 
 ```
+/** 使用代理以响应点击事件 */
 - (void)calendarPicker:(ALCalendarPicker *)picker didSelectItem:(ALCalendarDate *)date date:(NSDate *)dateObj dateString:(NSString *)dateStr;
+
+/** 点击箭头按钮回调 */
+- (void)calendarPicker:(ALCalendarPicker *)picker willClickToYearMonth:(NSString *)yearMonth;
+
+/** 进入月历后的回调 */
+- (void)calendarPicker:(ALCalendarPicker *)picker didScrollToYearMonth:(NSString *)yearMonth isScroll:(BOOL)isScroll;
 ```
 
 ### 反馈

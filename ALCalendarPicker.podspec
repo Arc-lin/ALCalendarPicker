@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ALCalendarPicker"
-  s.version      = "1.3.0"
+  s.version      = "1.4.0"
   s.summary      = "简洁简单的日历选择器"
 
   # This description is used to generate tags and improve search results.
@@ -30,6 +30,7 @@ Pod::Spec.new do |s|
   3. 点击日期代理回调
   4. 支持设定起始日期
   5. 支持点击给日期添加选择样式
+  6. 支持跳转到区间内某个年月
                    DESC
 
   s.homepage     = "https://github.com/Arc-lin/ALCalendarPicker"

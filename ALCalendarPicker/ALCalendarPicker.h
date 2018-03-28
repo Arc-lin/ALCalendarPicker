@@ -15,10 +15,27 @@
 
 @protocol ALCalendarPickerDelegate <NSObject>
 
+@optional
+
 /**
  选择某个日期
  */
 - (void)calendarPicker:(ALCalendarPicker *)picker didSelectItem:(ALCalendarDate *)date date:(NSDate *)dateObj dateString:(NSString *)dateStr;
+
+/**
+ 点击按钮即将进入某个月历
+ 
+ @param yearMonth yyyy-MM格式
+ */
+- (void)calendarPicker:(ALCalendarPicker *)picker willClickToYearMonth:(NSString *)yearMonth;
+
+/**
+ 进入某个月历
+ 
+ @param yearMonth yyyy-MM格式
+ @param isScroll 判断是点击按钮进入日历或者滑动进入日历
+ */
+- (void)calendarPicker:(ALCalendarPicker *)picker didScrollToYearMonth:(NSString *)yearMonth isScroll:(BOOL)isScroll;
 
 @end
 
@@ -53,5 +70,11 @@
 
 /** 选择日期的样式 */
 - (void)setupSelectedItemStyle:(void(^)(UIColor **backgroundColor,NSNumber **backgroundCornerRadius,UIColor **titleColor))style;
+
+/** 跳转到某个月历 只需提供日月 */
+- (void)jumpToYearMonth:(NSDate *)date;
+
+/** 字符串yyyy-MM 方式跳转 */
+- (void)jumpToYearMonthByStr:(NSString *)dateStr;
 
 @end

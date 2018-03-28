@@ -28,4 +28,7 @@
 /** 字符串转NSDate */
 + (NSDate *)dateStringToDate:(NSString *)dateString format:(NSString *)format;
 
+/** NSDate转字符串 */
++ (NSString *)dateToDateString:(NSDate *)date format:(NSString *)format;
+
 @end

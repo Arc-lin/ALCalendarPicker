@@ -14,7 +14,7 @@
 #import "ALCalendarHelper.h"
 #import "ALCalendarConfig.h"
 
-#import "UIView+Frame.h"
+#import "UIView+ALFrame.h"
 
 #import <Masonry/Masonry.h>
 
@@ -69,7 +69,6 @@ static CGFloat headerHeight = 45;
         make.bottom.equalTo(@0);
         make.right.equalTo(@0);
     }];
-
 }
 
 - (void)reloadPicker
@@ -136,6 +135,27 @@ static CGFloat headerHeight = 45;
     }
 }
 
+- (void)jumpToYearMonthByStr:(NSString *)dateStr
+{
+    if (self.beginYearMonth && [self compareOneDay:dateStr withAnotherDay:self.beginYearMonth]) {
+        NSLog(@"❗️❗️跳转的时间不能在最早年月之前❗️❗️");
+        return;
+    } else if (self.endYearMonth && [self compareOneDay:self.endYearMonth withAnotherDay:dateStr]) {
+        NSLog(@"❗️❗️跳转的时间不能在最晚年月之后❗️❗️");
+        return;
+    }
+    self.header.title = dateStr;
+    self.collectionViews[1].yearAndMonth = dateStr;
+    
+    [self setupLeftAndRightCalendar];
+}
+
+- (void)jumpToYearMonth:(NSDate *)date
+{
+    NSString *dateStr = [ALCalendarHelper dateToDateString:date format:@"yyyy-MM"];
+    [self jumpToYearMonthByStr:dateStr];
+}
+
 #pragma mark - Private Method
 
 - (void)showLeftCalendar
@@ -162,48 +182,64 @@ static CGFloat headerHeight = 45;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     // 到达起始时间不能滚动
-    if ([self.header.title isEqualToString:self.beginYearMonth] && scrollView.contentOffset.x < self.width) {
-        [scrollView setContentOffset:CGPointMake(self.width, 0) animated:NO];
+    if ([self.header.title isEqualToString:self.beginYearMonth] && scrollView.contentOffset.x < self.al_width) {
+        [scrollView setContentOffset:CGPointMake(self.al_width, 0) animated:NO];
     }
     
     // 到达结束时间不能滚动
-    if ([self.header.title isEqualToString:self.endYearMonth]  && scrollView.contentOffset.x > self.width) {
-        [scrollView setContentOffset:CGPointMake(self.width, 0) animated:NO];
+    if ([self.header.title isEqualToString:self.endYearMonth]  && scrollView.contentOffset.x > self.al_width) {
+        [scrollView setContentOffset:CGPointMake(self.al_width, 0) animated:NO];
     }
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
-    [self.scrollView setContentOffset:CGPointMake(self.width, 0) animated:NO];
+    [self.scrollView setContentOffset:CGPointMake(self.al_width, 0) animated:NO];
     
     [self setupLeftAndRightCalendar];
+    
+    if ([self.delegate respondsToSelector:@selector(calendarPicker:didScrollToYearMonth:isScroll:)]) {
+        [self.delegate calendarPicker:self didScrollToYearMonth:[self.header title] isScroll:NO];
+    }
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     CGFloat offsetX = scrollView.contentOffset.x;
-    CGFloat page    = offsetX / self.width;
+    CGFloat page    = offsetX / self.al_width;
     if (page == 2) {
         [self showRightCalendar];
     } else if (page == 0) {
         [self showLeftCalendar];
     }
     
-    [self.scrollView setContentOffset:CGPointMake(self.width, 0) animated:NO];
+    [self.scrollView setContentOffset:CGPointMake(self.al_width, 0) animated:NO];
     
     // 配置上个月和下个月的数据源
     [self setupLeftAndRightCalendar];
+    
+    if ([self.delegate respondsToSelector:@selector(calendarPicker:didScrollToYearMonth:isScroll:)]) {
+        [self.delegate calendarPicker:self didScrollToYearMonth:[self.header title] isScroll:YES];
+    }
 }
 
 #pragma mark - ALCalendarHeaderDelegate
 
 - (void)header:(ALCalendarHeader *)header didClickLeftBtn:(UIButton *)button
 {
+    if ([self.delegate respondsToSelector:@selector(calendarPicker:willClickToYearMonth:)]) {
+        [self.delegate calendarPicker:self willClickToYearMonth:[ALCalendarHelper lastYearAndMonth:[self.header title]]];
+    }
+    
     [self showLeftCalendar];
 }
 
 - (void)header:(ALCalendarHeader *)header didClickRightBtn:(UIButton *)button
 {
+    if ([self.delegate respondsToSelector:@selector(calendarPicker:willClickToYearMonth:)]) {
+        [self.delegate calendarPicker:self willClickToYearMonth:[ALCalendarHelper nextYearAndMonth:[self.header title]]];
+    }
+    
     [self showRightCalendar];
 }
 
@@ -221,7 +257,7 @@ static CGFloat headerHeight = 45;
 - (void)refreshCollectionView:(BOOL)next
 {
     if (next) { // 滚到下一页
-        [self.scrollView setContentOffset:CGPointMake(2 * self.width , 0) animated:YES];
+        [self.scrollView setContentOffset:CGPointMake(2 * self.al_width , 0) animated:YES];
     } else { // 滚到上一页
         [self.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
     }
@@ -261,9 +297,12 @@ static CGFloat headerHeight = 45;
 {
     _beginYearMonth            = beginYearMonth;
     self.header.beginYearMonth = beginYearMonth;
-    NSAssert([self compareOneDay:beginYearMonth withAnotherDay:[ALCalendarHelper currentYearAndMonth]], @"开始时间不能比当前月晚");
-    if (_endYearMonth) {
-        NSAssert([self compareOneDay:beginYearMonth withAnotherDay:self.endYearMonth],@"结束时间不能比开始时间早");
+    
+    if (![self compareOneDay:beginYearMonth withAnotherDay:[ALCalendarHelper currentYearAndMonth]]) {
+        NSLog(@"❗️❗️开始时间不能比当前年月晚❗️❗️");
+    }
+    if (_endYearMonth && ![self compareOneDay:beginYearMonth withAnotherDay:self.endYearMonth]) {
+        NSLog(@"❗️❗️结束时间不能比开始时间早❗️❗️");
     }
 }
 
@@ -271,9 +310,12 @@ static CGFloat headerHeight = 45;
 {
     _endYearMonth            = endYearMonth;
     self.header.endYearMonth = endYearMonth;
-    NSAssert([self compareOneDay:[ALCalendarHelper currentYearAndMonth] withAnotherDay:endYearMonth], @"结束时间不能比当前月早");
-    if (_beginYearMonth) {
-        NSAssert([self compareOneDay:self.beginYearMonth withAnotherDay:endYearMonth],@"结束时间不能比开始时间早");
+    
+    if ([self compareOneDay:endYearMonth withAnotherDay:[ALCalendarHelper currentYearAndMonth]]) {
+        NSLog(@"❗️❗️结束时间不能比当前月早❗️❗️");
+    }
+    if (_beginYearMonth && ![self compareOneDay:_beginYearMonth withAnotherDay:endYearMonth]) {
+       NSLog(@"❗️❗️结束时间不能比开始时间早❗️❗️");
     }
 }
 
@@ -282,11 +324,11 @@ static CGFloat headerHeight = 45;
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];
         _scrollView.pagingEnabled = YES;
-        CGFloat height = self.height - headerHeight;
-        _scrollView.contentSize = (CGSize){self.width * 3,height};
+        CGFloat height = self.al_height - headerHeight;
+        _scrollView.contentSize = (CGSize){self.al_width * 3,height};
         _scrollView.delegate = self;
         for (NSInteger i = 0; i < 3 ; i++) {
-            ALCalendarCollectionView *collectionView = [[ALCalendarCollectionView alloc] initWithFrame:CGRectMake(self.width * i, 0, self.width,height) collectionViewLayout:[[UICollectionViewFlowLayout alloc] init]];
+            ALCalendarCollectionView *collectionView = [[ALCalendarCollectionView alloc] initWithFrame:CGRectMake(self.al_width * i, 0, self.al_width,height) collectionViewLayout:[[UICollectionViewFlowLayout alloc] init]];
             collectionView.collectionViewDelegate = self;
             collectionView.yearAndMonth = nil;
             if (i == 0) {
@@ -301,7 +343,7 @@ static CGFloat headerHeight = 45;
         }
         _scrollView.showsHorizontalScrollIndicator = NO;
 //        _scrollView.scrollEnabled = NO;
-        [_scrollView setContentOffset:CGPointMake(self.width, 0) animated:NO];
+        [_scrollView setContentOffset:CGPointMake(self.al_width, 0) animated:NO];
     }
     return _scrollView;
 }
