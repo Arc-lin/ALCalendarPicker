@@ -110,8 +110,8 @@ Pod::Spec.new do |s|
   #  non-essential files like tests, examples and documentation.
   #
 
-  # s.resource  = "icon.png"
-  s.resources = "*.bundle"
+  s.resource  = "ALCalendarPicker/ALCalendarPicker.bundle"
+  #s.resources = "*.bundle"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
