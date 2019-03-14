@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ALCalendarPicker"
-  s.version      = "1.4.0"
+  s.version      = "1.4.1"
   s.summary      = "简洁简单的日历选择器"
 
   # This description is used to generate tags and improve search results.
@@ -111,7 +111,7 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-  # s.resources = "Resources/*.png"
+  s.resources = "*.bundle"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
